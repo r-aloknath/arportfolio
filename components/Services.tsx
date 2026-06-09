@@ -48,7 +48,7 @@ export default function Services() {
                 idx % 3 !== 2 && idx !== services.length - 1 ? '1px solid var(--c-border)' : undefined,
             }}
           >
-            <div className="text-2xl mb-3">⬡</div>
+            <div className="text-2xl mb-3 ta">⬡</div>
             <div className="font-semibold text-sm t1 mb-2">{service.title}</div>
             <div className="text-xs t2 leading-relaxed">{service.desc}</div>
           </div>

@@ -7,21 +7,21 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 nav-wrap">
       <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
-        <Link href="/" className="font-display font-bold text-base tracking-tighter t1">
+        <Link href="/" className="font-display font-bold text-2xl tracking-tighter t1">
           AR<span className="ta">.</span>
         </Link>
 
         <div className="hidden sm:flex items-center gap-8 text-sm">
-          <a href="#services" className="nav-link transition-colors">
+          <a href="#services" className="nav-link transition-colors text-lg">
             Services
           </a>
-          <a href="#skills" className="nav-link transition-colors">
+          <a href="#skills" className="nav-link transition-colors text-lg">
             Skills
           </a>
-          <a href="#work" className="nav-link transition-colors">
+          <a href="#work" className="nav-link transition-colors text-lg">
             Work
           </a>
-          <a href="#projects" className="nav-link transition-colors">
+          <a href="#projects" className="nav-link transition-colors text-lg">
             Projects
           </a>
         </div>
