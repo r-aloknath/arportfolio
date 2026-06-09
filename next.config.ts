@@ -2,10 +2,15 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    unoptimized: true, // For static export (optional)
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
-  output: 'export',    // Optional: enables static HTML export
   trailingSlash: true,
+  // SSR enabled: removed 'output: export' to enable server-side rendering
 };
 
 export default nextConfig;
