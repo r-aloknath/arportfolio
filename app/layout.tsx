@@ -15,7 +15,7 @@ const sora = Sora({
   display: 'swap',
 });
 
-const baseUrl = 'https://aloknath.dev';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://aloknath.dev';
 
 export const metadata: Metadata = {
   title: 'Aloknath Rath | Independent Full-Stack Tech Consultant | Angular • React • Node.js',

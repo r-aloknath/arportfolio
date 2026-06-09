@@ -4,3 +4,11 @@ command = "npm run build"
 
 [[plugins]]
 package = "@netlify/plugin-nextjs"
+
+# Environment variables for production
+[context.production]
+environment = { NEXT_PUBLIC_SITE_URL = "https://alokonar.in" }
+
+# Environment variables for deploy preview
+[context.deploy-preview]
+environment = { NEXT_PUBLIC_SITE_URL = "https://$DEPLOY_PRIME_URL" }
