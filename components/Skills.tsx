@@ -1,6 +1,8 @@
+'use client';
+
 export default function Skills() {
   return (
-    <section id="skills" className="max-w-4xl mx-auto px-6 py-16">
+    <section id="skills" className="max-w-4xl mx-auto px-6 py-16" aria-label="Skills section">
       <p className="text-xs font-semibold tracking-widest uppercase ta mb-4">Tech stack</p>
       <h2 className="font-display font-bold text-3xl tracking-tighter t1 mb-8">
         Tools I use every day
@@ -8,8 +10,8 @@ export default function Skills() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         <div>
-          <p className="text-xs font-semibold tracking-wider uppercase t3 mb-3">Frontend</p>
-          <div className="flex flex-wrap gap-2">
+          <h3 className="text-xs font-semibold tracking-wider uppercase t3 mb-3">Frontend</h3>
+          <div className="flex flex-wrap gap-2" role="list">
             {[
               'Angular',
               'React.js',
@@ -24,7 +26,7 @@ export default function Skills() {
               'WCAG Accessibility',
               'Sass / Bootstrap',
             ].map((skill) => (
-              <span key={skill} className="tag tag-a">
+              <span key={skill} className="tag tag-a" role="listitem">
                 {skill}
               </span>
             ))}
@@ -32,8 +34,8 @@ export default function Skills() {
         </div>
 
         <div>
-          <p className="text-xs font-semibold tracking-wider uppercase t3 mb-3">Backend &amp; APIs</p>
-          <div className="flex flex-wrap gap-2">
+          <h3 className="text-xs font-semibold tracking-wider uppercase t3 mb-3">Backend &amp; APIs</h3>
+          <div className="flex flex-wrap gap-2" role="list">
             {[
               'Node.js',
               'Express.js',
@@ -45,7 +47,7 @@ export default function Skills() {
               'MongoDB',
               'Mongoose ODM',
             ].map((skill) => (
-              <span key={skill} className="tag tag-g">
+              <span key={skill} className="tag tag-g" role="listitem">
                 {skill}
               </span>
             ))}
@@ -53,8 +55,8 @@ export default function Skills() {
         </div>
 
         <div>
-          <p className="text-xs font-semibold tracking-wider uppercase t3 mb-3">DevOps &amp; Tooling</p>
-          <div className="flex flex-wrap gap-2">
+          <h3 className="text-xs font-semibold tracking-wider uppercase t3 mb-3">DevOps &amp; Tooling</h3>
+          <div className="flex flex-wrap gap-2" role="list">
             {[
               'GitHub Actions',
               'Jenkins',
@@ -65,7 +67,7 @@ export default function Skills() {
               'Git / GitHub',
               'Postman',
             ].map((skill) => (
-              <span key={skill} className="tag">
+              <span key={skill} className="tag" role="listitem">
                 {skill}
               </span>
             ))}
@@ -73,10 +75,10 @@ export default function Skills() {
         </div>
 
         <div>
-          <p className="text-xs font-semibold tracking-wider uppercase t3 mb-3">
+          <h3 className="text-xs font-semibold tracking-wider uppercase t3 mb-3">
             Mobile &amp; Architecture
-          </p>
-          <div className="flex flex-wrap gap-2">
+          </h3>
+          <div className="flex flex-wrap gap-2" role="list">
             {[
               'Ionic Framework',
               'React Native',
@@ -86,7 +88,7 @@ export default function Skills() {
               'State Management',
               'Code Splitting',
             ].map((skill) => (
-              <span key={skill} className="tag">
+              <span key={skill} className="tag" role="listitem">
                 {skill}
               </span>
             ))}

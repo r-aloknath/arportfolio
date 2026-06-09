@@ -12,17 +12,17 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <main role="main">
         <Hero />
-        <hr className="max-w-4xl mx-auto" style={{ borderColor: 'var(--c-border)' }} />
+        <hr className="max-w-4xl mx-auto" style={{ borderColor: 'var(--c-border)' }} aria-hidden="true" />
         <Services />
-        <hr className="max-w-4xl mx-auto" style={{ borderColor: 'var(--c-border)' }} />
+        <hr className="max-w-4xl mx-auto" style={{ borderColor: 'var(--c-border)' }} aria-hidden="true" />
         <Skills />
-        <hr className="max-w-4xl mx-auto" style={{ borderColor: 'var(--c-border)' }} />
+        <hr className="max-w-4xl mx-auto" style={{ borderColor: 'var(--c-border)' }} aria-hidden="true" />
         <Experience />
-        <hr className="max-w-4xl mx-auto" style={{ borderColor: 'var(--c-border)' }} />
+        <hr className="max-w-4xl mx-auto" style={{ borderColor: 'var(--c-border)' }} aria-hidden="true" />
         <Projects />
-        <hr className="max-w-4xl mx-auto" style={{ borderColor: 'var(--c-border)' }} />
+        <hr className="max-w-4xl mx-auto" style={{ borderColor: 'var(--c-border)' }} aria-hidden="true" />
         <Education />
         <Cta />
       </main>

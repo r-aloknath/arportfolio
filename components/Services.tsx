@@ -1,3 +1,5 @@
+'use client';
+
 export default function Services() {
   const services = [
     {
@@ -27,7 +29,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="max-w-4xl mx-auto px-6 py-16">
+    <section id="services" className="max-w-4xl mx-auto px-6 py-16" aria-label="Services section">
       <p className="text-xs font-semibold tracking-widest uppercase ta mb-4">What I do</p>
       <h2 className="font-display font-bold text-3xl tracking-tighter t1 mb-3">
         How I can help your team
@@ -37,21 +39,26 @@ export default function Services() {
         I work across the full stack.
       </p>
 
-      <div className="svc-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="svc-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" role="list">
         {services.map((service, idx) => (
-          <div
+          <article
             key={idx}
+            role="listitem"
             className="svc-cell p-6 transition-colors"
             style={{
               borderBottom: idx < 3 ? '1px solid var(--c-border)' : undefined,
               borderRight:
                 idx % 3 !== 2 && idx !== services.length - 1 ? '1px solid var(--c-border)' : undefined,
             }}
+            itemScope
+            itemType="https://schema.org/Service"
           >
-            <div className="text-2xl mb-3 ta">⬡</div>
-            <div className="font-semibold text-sm t1 mb-2">{service.title}</div>
-            <div className="text-xs t2 leading-relaxed">{service.desc}</div>
-          </div>
+            <div className="text-2xl mb-3 ta" aria-hidden="true">⬡</div>
+            <h3 className="font-semibold text-sm t1 mb-2" itemProp="name">{service.title}</h3>
+            <p className="text-xs t2 leading-relaxed" itemProp="description">{service.desc}</p>
+            <meta itemProp="provider" content="Aloknath Rath" />
+            <meta itemProp="areaServed" content="Worldwide" />
+          </article>
         ))}
       </div>
     </section>

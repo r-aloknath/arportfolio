@@ -1,3 +1,5 @@
+'use client';
+
 export default function Experience() {
   const experiences = [
     {
@@ -51,33 +53,36 @@ export default function Experience() {
   ];
 
   return (
-    <section id="work" className="max-w-4xl mx-auto px-6 py-16">
+    <section id="experience" className="max-w-4xl mx-auto px-6 py-16" aria-label="Experience section">
       <p className="text-xs font-semibold tracking-widest uppercase ta mb-4">Experience</p>
       <h2 className="font-display font-bold text-3xl tracking-tighter t1 mb-8">
         Where I've worked
       </h2>
 
-      <div style={{ borderTop: '1px solid var(--c-border)' }}>
+      <div style={{ borderTop: '1px solid var(--c-border)' }} role="list">
         {experiences.map((exp, idx) => (
-          <div
+          <article
             key={idx}
             className="py-7 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-4"
             style={{ borderBottom: '1px solid var(--c-border)' }}
+            role="listitem"
+            itemScope
+            itemType="https://schema.org/EmployeeRole"
           >
             <div>
-              <div className="font-semibold text-sm t1 mb-1">{exp.title}</div>
-              <div className="text-xs font-medium tg mb-3">{exp.company}</div>
+              <h3 className="font-semibold text-sm t1 mb-1" itemProp="jobTitle">{exp.title}</h3>
+              <div className="text-xs font-medium tg mb-3" itemProp="hiringOrganization">{exp.company}</div>
               <ul className="space-y-1 text-xs t2 leading-relaxed list-disc list-inside">
                 {exp.points.map((point, i) => (
-                  <li key={i}>{point}</li>
+                  <li key={i} itemProp="description">{point}</li>
                 ))}
               </ul>
             </div>
             <div className="text-xs t3 sm:text-right">
-              <span className="block font-medium t2">{exp.period}</span>
-              <span>{exp.location}</span>
+              <span className="block font-medium t2" itemProp="startDate">{exp.period}</span>
+              <span itemProp="jobLocation">{exp.location}</span>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

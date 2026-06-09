@@ -1,3 +1,5 @@
+'use client';
+
 export default function Projects() {
   const projects = [
     {
@@ -33,19 +35,26 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="max-w-4xl mx-auto px-6 py-16">
+    <section id="work" className="max-w-4xl mx-auto px-6 py-16" aria-label="Projects section">
       <p className="text-xs font-semibold tracking-widest uppercase ta mb-4">Projects</p>
       <h2 className="font-display font-bold text-3xl tracking-tighter t1 mb-8">
         Selected work
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
         {projects.map((project, idx) => (
-          <div key={idx} className="card card-hover p-5 transition-all cursor-default">
-            <div className="font-semibold text-sm t1 mb-1">{project.title}</div>
-            <div className="text-xs font-medium ta mb-2">{project.tech}</div>
-            <div className="text-xs t2 leading-relaxed">{project.desc}</div>
-          </div>
+          <article 
+            key={idx} 
+            className="card card-hover p-5 transition-all cursor-default"
+            role="listitem"
+            itemScope
+            itemType="https://schema.org/CreativeWork"
+          >
+            <h3 className="font-semibold text-sm t1 mb-1" itemProp="name">{project.title}</h3>
+            <p className="text-xs font-medium ta mb-2" itemProp="keywords">{project.tech}</p>
+            <p className="text-xs t2 leading-relaxed" itemProp="description">{project.desc}</p>
+            <meta itemProp="creator" content="Aloknath Rath" />
+          </article>
         ))}
       </div>
     </section>
