@@ -1,26 +1,186 @@
 @import "tailwindcss";
 
+/* ── CSS custom properties for theming ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --c-bg:       #fafaf8;
+  --c-card:     #ffffff;
+  --c-border:   #e4e2da;
+  --c-ink1:     #0f0e0d;
+  --c-ink2:     #3d3b38;
+  --c-ink3:     #7a7870;
+  --c-hover:    #f5f4f0;
+  --c-tag-bg:   #f2f1ec;
+  --c-tag-ink:  #3d3b38;
+  --c-tag-bdr:  #e4e2da;
+  --c-accent:   #1a3cff;
+  --c-acc-soft: #eef1ff;
+  --c-acc-bdr:  #c7d2fe;
+  --c-teal:     #0f6e56;
+  --c-tea-soft: #e1f5ee;
+  --c-tea-bdr:  #9fe1cb;
+  --c-cta-bg:   #0f0e0d;
+  --c-cta-btn:  #ffffff;
+  --c-cta-btni: #0f0e0d;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark {
+  --c-bg:       #111110;
+  --c-card:     #1a1917;
+  --c-border:   #2e2c28;
+  --c-ink1:     #f0ede8;
+  --c-ink2:     #b0ada6;
+  --c-ink3:     #6b6860;
+  --c-hover:    #222120;
+  --c-tag-bg:   #1f1e1b;
+  --c-tag-ink:  #b0ada6;
+  --c-tag-bdr:  #2e2c28;
+  --c-accent:   #5b7cff;
+  --c-acc-soft: #1a2040;
+  --c-acc-bdr:  #2e3a80;
+  --c-teal:     #3db896;
+  --c-tea-soft: #0d2820;
+  --c-tea-bdr:  #1a5040;
+  --c-cta-bg:   #1a1917;
+  --c-cta-btn:  #f0ede8;
+  --c-cta-btni: #111110;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--c-bg);
+  color: var(--c-ink1);
+}
+
+/* Custom component classes */
+@layer components {
+  .nav-wrap {
+    background: color-mix(in srgb, var(--c-bg) 90%, transparent);
+    border-bottom: 1px solid var(--c-border);
+    backdrop-filter: blur(12px);
+  }
+  
+  .nav-link {
+    color: var(--c-ink2);
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--c-accent); }
+  
+  .hire-btn {
+    background: var(--c-ink1);
+    color: var(--c-bg);
+  }
+  .hire-btn:hover { opacity: 0.85; }
+  
+  .toggle-btn {
+    border: 1px solid var(--c-border);
+    background: var(--c-card);
+    color: var(--c-ink2);
+    border-radius: 6px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .toggle-btn:hover { border-color: var(--c-ink3); }
+  
+  .t1 { color: var(--c-ink1); }
+  .t2 { color: var(--c-ink2); }
+  .t3 { color: var(--c-ink3); }
+  .ta { color: var(--c-accent); }
+  .tg { color: var(--c-teal); }
+  
+  .btn-primary {
+    background: var(--c-accent);
+    color: #fff;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  
+  .btn-outline {
+    border: 1px solid var(--c-border);
+    color: var(--c-ink2);
+  }
+  .btn-outline:hover {
+    border-color: var(--c-ink2);
+    color: var(--c-ink1);
+  }
+  
+  .card {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 10px;
+  }
+  .card-hover:hover {
+    border-color: var(--c-acc-bdr);
+    box-shadow: 0 0 0 3px var(--c-acc-soft);
+  }
+  
+  .svc-grid {
+    border: 1px solid var(--c-border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .svc-cell {
+    background: var(--c-card);
+    border-color: var(--c-border);
+  }
+  .svc-cell:hover { background: var(--c-hover); }
+  
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--c-tag-bdr);
+    background: var(--c-tag-bg);
+    color: var(--c-tag-ink);
+  }
+  .tag-a {
+    background: var(--c-acc-soft);
+    color: var(--c-accent);
+    border-color: var(--c-acc-bdr);
+  }
+  .tag-g {
+    background: var(--c-tea-soft);
+    color: var(--c-teal);
+    border-color: var(--c-tea-bdr);
+  }
+  
+  .cta-block {
+    background: var(--c-cta-bg);
+    border-radius: 12px;
+  }
+  .cta-email {
+    background: var(--c-cta-btn);
+    color: var(--c-cta-btni);
+  }
+  .cta-email:hover { opacity: 0.88; }
+  .cta-li {
+    color: rgba(160,157,150,0.8);
+    border: 1px solid rgba(160,157,150,0.25);
+  }
+  .cta-li:hover {
+    border-color: rgba(160,157,150,0.6);
+    color: var(--c-cta-btn);
+  }
+  
+  .foot {
+    border-top: 1px solid var(--c-border);
+    color: var(--c-ink3);
+  }
+  .foot a:hover { color: var(--c-ink1); }
+  
+  .status-dot { background: var(--c-teal); }
+  
+  ::selection {
+    background: var(--c-acc-soft);
+    color: var(--c-accent);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
