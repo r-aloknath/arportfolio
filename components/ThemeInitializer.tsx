@@ -1,4 +1,4 @@
-'use client';
+import Script from 'next/script';
 
 export default function ThemeInitializer() {
   // This runs before React hydrates to prevent dark mode flash
@@ -12,5 +12,11 @@ export default function ThemeInitializer() {
     })();
   `;
 
-  return <script dangerouslySetInnerHTML={{ __html: themeScript }} />;
+  return (
+    <Script
+      id="theme-initializer"
+      strategy="beforeInteractive"
+      dangerouslySetInnerHTML={{ __html: themeScript }}
+    />
+  );
 }
